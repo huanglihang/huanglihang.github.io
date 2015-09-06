@@ -1,289 +1,77 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>FBA</title>
-    <link rel="shortcut icon" href="images/icon_64.ico">
-    <link rel="stylesheet" href="stylesheets/reset.css">
-    <!-- <link rel="stylesheet" href="stylesheets/github-dark.css"> -->
-<!--     // <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> -->
-    <!-- // <script src="javascripts/main.js"></script> -->
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <script>
-    var animation = function(ele,attr,from,to){
-    var distance = Math.abs(to - from);
-    var stepLength = 1;
-    var sign = (to-from)/distance;
-    var offset = 0;
-    var step = function(){
-      var tmpOffset = offset + stepLength;
-      if (tmpOffset < distance) {
-        ele.style[attr] = from + tmpOffset*sign + '%';
-        offset = tmpOffset;
-      }else{
-        ele.style[attr] = to + '%';
-        clearInterval(intervalID);
-      }
-    }
-    ele.style[attr] = from + '%';
-    var intervalID = setInterval(step,10);
-  }
-  </script>
-  <style>
-    header{
-      position: relative;
-      width: 100%;
-      height:75px;
-      /*background-color: #03131D;*/
-      background-image: linear-gradient(#03131D,#1d3f57);
-    }
-    .logo{
-      position: absolute;
-      left:125px;
-      top:14px;
-      height: 60px;
-      width: 152px;
-      background:url(images/head&foot_spirit.png) 0px 0px no-repeat;
-    }
-    .slogan{
-      position: absolute;
-      top: 20px;
-      left:270px;
-      height:45px;
-      width: 99px;
-      background:url(./images/head&foot_spirit.png) 0px -107px no-repeat;
-    }
-    .nav{
-      width:955px;
-      height:55px;
-      margin:0 auto;
-      font-size:15px;
-      color:black;
-      font-family:"Microsoft YaHei";
-      font-weight: bold;
-      text-align: center;
-      line-height: 55px;
-    }
-    .nav>div{
-      background-color: #EDEDED;
-      float:left;
-      width: 191px;
-      height:100%;
-      transition:.7s;
-    }
-    .nav>div:hover{
-      background-color: #1d3f57;
-      color:white;
-    }
-    .g-mn{
-      position:relative;
-      width:1150px;
-      height:500px;
-      border-radius: 5px;
-      border: 1px black solid;
-      margin:0 auto;
-    }
-    .coverimg{
-      overflow: hidden;
-    }
-    .coverimg .imgwarp{
-      position:relative;
-      width:1150px;
-      height: 500px;
-    }
-    .coverimg .banner{/*display:none;*//*float:left;*/width:1150px;height:500px;}
-    .coverimg .banner-0{background:url(./images/test_1.jpg);position: absolute;left:0;}
-    .coverimg .banner-1{background:url(./images/test_2.jpg);position: absolute;left:0;z-index: -1;}
-    /*.img{
-      display: block;
-    }
-    .img_1{
-      position: absolute;
-      width:1150px;
-      height:550px;
-      left:-500px;
-      background:url(img/test_1.jpg) no-repeat;
-    }
-    .img_2{
-      width:1150px;
-      height:550px;
-      background:url(img/test_2.jpg) no-repeat;
-    }*/
-    .lunbo{
-      position: absolute;
-      width:955px;
-      height:90px;
-      /*outline: 1px solid red;*/
-      /*margin-left: -375px;*/
-      transform:translateX(-50%);
-      left:50%;
-      bottom: 0px;
-    }
-    .buttom{
-      position:absolute;
-      bottom: 0px;
-      width:100%;
-      height: 10px;
-      background-color: #982023;
-    }
-    .top{
-      position: absolute;
-      bottom:10px;
-      width:100%;
-      height:80px;
-      background-color: #03131D;
-      opacity:0.9;
-      font-size: 30px;
-      font-family: "Microsoft YaHei";
-      /*font-weight: bold;*/
-      color: white;
-      text-align: center;
-      line-height: 60px;
-    }
-    .controls{
-      position: absolute;
-      bottom:15px;
-      left:50%;
-      transform:translateX(-50%);
-    }
-    .controls>i{
-      width:15px;
-        height: 15px;
-        border-radius:10px; 
-        background-color: white;
-        border:1px solid black;
-        display:inline-block;
-        cursor: pointer;
-        transition:.7s;
-    }
-    .controls>i:hover{
-      background-color: #982023;
-    }
-    .line{
-      float:right;
-      width:1px;
-      height:35px;
-      background-color: gray;
-      margin-top:10px;
-    }
-    .sousuo{
-      position: absolute;
-      width: 100px;
-      height:20px;
-      top:50%;
-      transform:translateY(-50%);
-      right:200px;
-      border-radius:5px 0px 0px 5px;
-      background-color: white;
-      transition:1s;
-    }
-    .sousuo:hover{
-      width: 150px;
-    }
-    .submit_1{
-      position: absolute;
-      right:150px;
-      height:24px;
-      width:50px;
-      background-color: #EDEDED;
-      top:50%;
-      transform:translateY(-50%);
-      border-top: 1px solid gray;
-      border-right: 1px solid gray;
-      border-bottom: 1px solid gray;
-      border-left:0px;
-      border-radius:0px 5px 5px 0px;
-      font-size:10px;
-      text-align: center;
-    }
-    .denglu{
-      position: absolute;
-      top:50%;
-      transform:translateY(-50%);
-      right:95px;
-      height: 20px;
-      width: 60px;
-      border-radius: 10px;
-      border:2px solid white;
-      color: white;
-      font-size:10px;
-      transition:.7s;
-      line-height: 20px;
-      text-align: center;
-    }
-    .denglu:hover{
-      color:#1d3f57;
-      background-color: white;
-    }
-    .sixin{
-      position: absolute;
-      top:50%;
-      transform:translateY(-50%);
-      right:40px;
-      width: 25px;
-      height: 15px;
-      background:url(./images/head&foot_spirit.png) 0px -84px;
-    }
-    #line_2{
-      position: absolute;
-      top:50%;
-      right: 80px;
-      transform:translateY(-50%);
-      width: 1px;
-      height: 20px;
-      background-color: white;
-    }
-  </style>
-  </head>
-  <body>
-    <header>
-    <div class = 'logo'></div>
-    <div class = 'slogan'></div>
-    <!-- <form action="" class = 'sousuo_main'>
-      <input type="submit" class ='submit_1' value = '搜索'>
-      <input type="text" class = 'sousuo'>
-    </form> -->
-    <div class = 'denglu'>登录</div>
-    <div id = 'line_2'></div>
-    <div class = 'sixin'></div>
-  </header>
-  <div class = 'nav'>
-      <div id = 'nav1'>主页<div class = 'line'></div></div>
-      <div id = 'nav2'>棒垒事<div class = 'line'></div></div>
-      <div id = 'nav3'>影视<div class = 'line'></div></div>
-      <div id = 'nav4'>20周年<div class = 'line'></div></div>
-      <div id = 'nav5'>关于我们</div>
-  </div>
-  <div class = 'g-mn'>
-    <div class = 'coverimg'>
-      <div class = 'imgwarp f-cb' id = 'imgwarp'>
-        <div class="banner banner-0" data-index="0" id = 'banner_0'></div>
-              <div class="banner banner-1" data-index="1" id = 'banner_1'></div>
-      </div>
-    </div>
-  </div>
-  <div class = 'lunbo'>
-    <div class = 'top'>这是测试头条标题</div>
-    <div class = 'buttom'></div>
-    <div class = 'controls'>
-      <i id = 'controls_0'></i>
-      <i id = 'controls_1'></i>
-      <i id = 'controls_2'></i>
-      <i id = 'controls_3'></i>
-      <i id = 'controls_4'></i>
-    </div>
-  </div>
-  <script>
-  var elem_1 = document.getElementById('controls_1');
-  var elem_2 = document.getElementById('banner_0');
-  var elem_3 = document.getElementById('controls_0');
-  var elem_4 = document.getElementById('banner_0');
-  elem_1.addEventListener('click',animation.bind(event,elem_2,'left',0,-100));
-  elem_3.addEventListener('click',animation.bind(event,elem_2,'left',-100,0));  
-  </script>
-  </body>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>FBA | 棒垒球之家</title>
+	<link rel="shortcut icon" href="img/icon_64.ico">
+	<link rel="stylesheet" href="css/reset.css"/>
+	<style>
+		html, body, .parent{height: 100%;}
+		.parent{display:flex;flex-direction:column;}
+		.top{width: 100%;height: 75px;background-image: linear-gradient(#03131D,#1d3f57);}
+		.logo{display: inline-block;float:left;margin-left:125px;margin-top:14px;height:60px;width:152px;background:url(img/head&foot_spirit.png) 0px 0px no-repeat;}
+		.slogan{display: inline-block;float:left;margin-top:20px;height: 45px;width:99px;background:url(./img/head&foot_spirit.png) 0px -107px no-repeat;}
+		.denglu{display: inline-block;float:left;height: 20px;width: 60px;border-radius: 10px;border:2px solid white;color: white;font-size:10px;transition:.7s;line-height: 20px;text-align: center;margin-top:28px;margin-left: 800px;}
+		.denglu:hover{color:#1d3f57;background-color: white;}
+		#line_1{display: inline-block;float: left;width: 1px;height: 20px;background-color: white;margin-top:30px;margin-left:10px;}
+		.sixin{display: inline-block;float:left;height:15px;width: 25px;background:url(./img/head&foot_spirit.png) 0px -84px;margin-top:32px;margin-left:10px;}
+
+		.bottom{height:30px;width:100%;outline: 1px red solid;}
+		.lunbo{	position: absolute;	width:955px;height:90px;transform:translateX(-50%);left:50%;bottom:0px;}
+		.title{position: absolute;bottom:10px;width:100%;height:80px;background-color: #03131D;opacity:0.9;font-size: 30px;font-family: "Microsoft YaHei";color: white;text-align: center;line-height: 60px;}
+		.controls{position: absolute;bottom:15px;left:50%;transform:translateX(-50%);}
+		.controls>i{width:15px;height: 15px;border-radius:10px;background-color: white;border:1px solid black;display:inline-block;cursor: pointer;transition:.7s;}
+		.bottom_l{position:absolute;bottom: 0px;width:100%;height: 10px;background-color: #982023;}
+		.nav{width:955px;height:55px;margin:0 auto;font-size:15px;color:black;font-family:"Microsoft YaHei";font-weight: bold;
+			text-align: center;line-height: 55px;}
+		.nav>div{background-color: #EDEDED;float:left;width: 191px;height:100%;transition:.7s;}
+		.nav>div:hover{	background-color: #1d3f57;color:white;}
+		.line{
+			float:right;
+			width:1px;
+			height:35px;
+			background-color: gray;
+			margin-top:10px;
+		}
+		.container{position: absolute;width:1150px;top:130px;bottom:30px;left:50%;transform:translateX(-50%);border-radius: 5px;border: 1px black solid;}
+		#img_0{width:100%;height:100%;background:url(./img/test_1.jpg);background-size: cover;}
+/*		#img_1{background:url(./img/test_2.jpg);opacity: 0;}*/
+
+	</style>
+</head>
+<body>
+	<div class = 'parent'>
+		<div class = 'top'>
+			<div class = 'logo'></div>
+			<div class = 'slogan'></div>
+			<div class = 'denglu'>登录</div>
+			<div id = 'line_1'></div>
+			<div class = 'sixin'></div>
+		</div>
+		<div class = 'nav'>
+			<div id = 'nav1'>主页<div class = 'line'></div></div>
+			<div id = 'nav2'>棒垒事<div class = 'line'></div></div>
+			<div id = 'nav3'>影视<div class = 'line'></div></div>
+			<div id = 'nav4'>20周年<div class = 'line'></div></div>
+			<div id = 'nav5'>关于我们</div>
+		</div>
+		<div class = 'container'>
+			<div class = 'img' id = 'img_0'></div>
+			<div class = 'img' id = 'img_1'></div>
+		</div>
+		
+		<!-- <div class = 'bottom'></div> -->
+		<div class = 'lunbo'>
+			<div class = 'title'>这是测试头条标题</div>
+			<div class = 'bottom_l'></div>
+			<div class = 'controls'>
+				<i id = 'controls_0'></i>
+				<i id = 'controls_1'></i>
+				<i id = 'controls_2'></i>
+				<i id = 'controls_3'></i>
+				<i id = 'controls_4'></i>
+			</div>
+		</div>
+	</div>
+</body>
 </html>
