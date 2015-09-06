@@ -21,6 +21,7 @@
 		.title{position: absolute;bottom:10px;width:100%;height:80px;background-color: #03131D;opacity:0.9;font-size: 30px;font-family: "Microsoft YaHei";color: white;text-align: center;line-height: 60px;}
 		.controls{position: absolute;bottom:15px;left:50%;transform:translateX(-50%);}
 		.controls>i{width:15px;height: 15px;border-radius:10px;background-color: white;border:1px solid black;display:inline-block;cursor: pointer;transition:.7s;}
+		.controls>i:hover{background-color: #982023;}
 		.bottom_l{position:absolute;bottom: 0px;width:100%;height: 10px;background-color: #982023;}
 		.nav{width:955px;height:55px;margin:0 auto;font-size:15px;color:black;font-family:"Microsoft YaHei";font-weight: bold;
 			text-align: center;line-height: 55px;}
@@ -33,10 +34,99 @@
 			background-color: gray;
 			margin-top:10px;
 		}
-		.container{position: absolute;width:1150px;top:130px;bottom:30px;left:50%;transform:translateX(-50%);border-radius: 5px;border: 1px black solid;}
-		#img_0{width:100%;height:100%;background:url(./images/test_1.jpg);background-size: cover;}
-/*		#img_1{background:url(./img/test_2.jpg);opacity: 0;}*/
+		.container{position: absolute;width:1150px;top:130px;bottom:30px;left:50%;transform:translateX(-50%);border-radius: 5px;border: 1px black solid;overflow: hidden;}
+		.img{width: 100%;height: 100%;/*display:inline-block;*/position: absolute;}
+		#img_0{background:url(./images/test_1.jpg);background-size:cover;opacity:1;}
+		#img_1{background:url(./images/test_2.jpg);background-size:cover;opacity:0;}
+		#img_2{background:url(./images/test_3.jpg);background-size:cover;opacity:0;}
+		#img_3{background:url(./images/test_4.jpg);background-size:cover;opacity:0;}
+		#img_4{background:url(./images/test_5.jpg);background-size:cover;opacity:0;}
 	</style>
+	<script>
+	//轮播图
+		var index = 0;
+		var change  = 0.01;
+	//浮点加减法
+		function accAdd(arg1,arg2){  
+		    var r1,r2,m;  
+		    try{r1=arg1.toString().split(".")[1].length}catch(e){r1=0}; 
+		    try{r2=arg2.toString().split(".")[1].length}catch(e){r2=0};  
+		    m=Math.pow(10,Math.max(r1,r2));  
+		    return (arg1*m+arg2*m)/m;  
+		}
+	//轮播动画
+		function step(){
+			if(index == 0){
+				if(imgwrap[1].style.opacity <= 1){			    
+					imgwrap[0].style.opacity = imgwrap[0].style.opacity - change;				
+					imgwrap[1].style.opacity = accAdd(imgwrap[1].style.opacity,change);
+					setTimeout(step,5);				
+				}else{
+					imgwrap[0].style.opacity = 0;
+					imgwrap[1].style.opacity = 1;
+					b[0].style['background-color'] = 'white';
+					b[1].style['background-color'] = '#982023';
+					index += 1;
+					setTimeout(step,5000);
+				}
+			}else if(index == 1){
+				if(imgwrap[2].style.opacity  <=1){
+					imgwrap[1].style.opacity = imgwrap[1].style.opacity - change;
+					imgwrap[2].style.opacity = accAdd(imgwrap[2].style.opacity,change);
+					setTimeout(step,5);
+				}else{
+					imgwrap[1].style.opacity = 0;
+					imgwrap[2].style.opacity = 1;
+					b[1].style['background-color'] = 'white';
+					b[2].style['background-color'] = '#982023';
+					index += 1;
+					setTimeout(step,5000);
+				}
+			}else if(index == 2){
+				if(imgwrap[3].style.opacity  <=1){
+					imgwrap[2].style.opacity = imgwrap[2].style.opacity - change;
+					imgwrap[3].style.opacity = accAdd(imgwrap[3].style.opacity,change);
+					setTimeout(step,5);
+				}else{
+					imgwrap[2].style.opacity = 0;
+					imgwrap[3].style.opacity = 1;
+					b[2].style['background-color'] = 'white';
+					b[3].style['background-color'] = '#982023';
+					index += 1;
+					setTimeout(step,5000);
+				}
+			}else if(index == 3){
+				if(imgwrap[4].style.opacity  <=1){
+					imgwrap[3].style.opacity = imgwrap[3].style.opacity - change;
+					imgwrap[4].style.opacity = accAdd(imgwrap[4].style.opacity,change);
+					setTimeout(step,5);
+				}else{
+					imgwrap[3].style.opacity = 0;
+					imgwrap[4].style.opacity = 1;
+					b[3].style['background-color'] = 'white';
+					b[4].style['background-color'] = '#982023';
+					index +=1;
+					setTimeout(step,5000);
+				}
+			}
+			else if(index == 4){
+				if(imgwrap[0].style.opacity  <=1){
+					imgwrap[4].style.opacity = imgwrap[4].style.opacity - change;
+					imgwrap[0].style.opacity = accAdd(imgwrap[0].style.opacity,change);
+					setTimeout(step,5);
+				}else{
+					imgwrap[4].style.opacity = 0;
+					imgwrap[0].style.opacity = 1;
+					b[4].style['background-color'] = 'white';
+					b[0].style['background-color'] = '#982023';
+					index = 0;
+					setTimeout(step,5000);
+				}
+			}
+		}
+		var intervalID = setTimeout(step,3000);
+
+	</script>
 </head>
 <body>
 	<div class = 'parent'>
@@ -57,6 +147,9 @@
 		<div class = 'container'>
 			<div class = 'img' id = 'img_0'></div>
 			<div class = 'img' id = 'img_1'></div>
+			<div class = 'img' id = 'img_2'></div>
+			<div class = 'img' id = 'img_3'></div>
+			<div class = 'img' id = 'img_4'></div>
 		</div>
 		
 		<!-- <div class = 'bottom'></div> -->
@@ -64,13 +157,19 @@
 			<div class = 'title'>这是测试头条标题</div>
 			<div class = 'bottom_l'></div>
 			<div class = 'controls'>
-				<i id = 'controls_0'></i>
-				<i id = 'controls_1'></i>
-				<i id = 'controls_2'></i>
-				<i id = 'controls_3'></i>
-				<i id = 'controls_4'></i>
+				<i id = 'controls_0' style = 'background-color : #982023'></i>
+				<i id = 'controls_1' style = 'background-color : white'></i>
+				<i id = 'controls_2' style = 'background-color : white'></i>
+				<i id = 'controls_3' style = 'background-color : white'></i>
+				<i id = 'controls_4' style = 'background-color : white'></i>
 			</div>
 		</div>
 	</div>
+	<script>
+	var wrap = document.querySelector('.container');
+	var imgwrap = wrap.querySelectorAll('div');
+	var a = document.querySelector('.controls');
+	var b = a.querySelectorAll('i');
+	</script>
 </body>
 </html>
