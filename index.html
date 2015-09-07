@@ -9,22 +9,27 @@
 		html, body, .parent{height: 100%;}
 		/*.parent{display:flex;flex-direction:column;}*/
 		.top{width: 100%;height: 75px;background-image: linear-gradient(#03131D,#1d3f57);}
-		.logo{display: inline-block;float:left;margin-left:125px;margin-top:14px;height:60px;width:152px;background:url(./images/head&foot_spirit.png) 0px 0px no-repeat;}
-		.slogan{display: inline-block;float:left;margin-top:20px;height: 45px;width:99px;background:url(./images/head&foot_spirit.png) 0px -107px no-repeat;}
-		.denglu{display: inline-block;float:left;height: 20px;width: 60px;border-radius: 10px;border:2px solid white;color: white;font-size:10px;transition:.7s;line-height: 20px;text-align: center;margin-top:28px;margin-left: 800px;}
+		.logo{display: inline-block;float:left;margin-left:125px;margin-top:14px;height:60px;width:152px;background:url(./images/head&foot_spirit.png) 0px 0px no-repeat;cursor: pointer;}
+		.slogan{display: inline-block;float:left;margin-top:20px;height: 45px;width:99px;background:url(./images/head&foot_spirit.png) 0px -107px no-repeat;cursor: pointer;}
+		.denglu{display: inline-block;float:left;height: 20px;width: 60px;border-radius: 10px;border:2px solid white;color: white;font-size:10px;transition:.7s;line-height: 20px;text-align: center;margin-top:28px;margin-left: 800px;cursor: pointer;}
 		.denglu:hover{color:#1d3f57;background-color: white;}
 		#line_1{display: inline-block;float: left;width: 1px;height: 20px;background-color: white;margin-top:30px;margin-left:10px;}
-		.sixin{display: inline-block;float:left;height:15px;width: 25px;background:url(./images/head&foot_spirit.png) 0px -84px;margin-top:32px;margin-left:10px;}
+		.sixin{display: inline-block;float:left;height:15px;width: 25px;background:url(./images/head&foot_spirit.png) 0px -84px;margin-top:32px;margin-left:10px;cursor: pointer;}
 
 		.bottom{height:30px;width:100%;outline: 1px red solid;}
 		.lunbo{	position: absolute;	width:955px;height:90px;transform:translateX(-50%);left:50%;bottom:0px;}
 		.title{position: absolute;bottom:10px;width:100%;height:80px;background-color: #03131D;opacity:0.9;font-size: 30px;font-family: "Microsoft YaHei";color: white;text-align: center;line-height: 60px;}
+		.button{position: absolute;width:108px;height: 108px;cursor: pointer;}
+		#left{background: url(./images/spirit_2.png) 0px -125px no-repeat;top:50%;transform:translateY(-50%);left:20px;opacity: 0.4;}
+		#right{background: url(./images/spirit_2.png) 0px 0px no-repeat;top:50%;transform:translateY(-50%);right:20px;opacity: 0.4;}
+		.button:hover{opacity: 0.8 !important;}
 		.controls{position: absolute;bottom:15px;left:50%;transform:translateX(-50%);}
-		.controls>i{width:15px;height: 15px;border-radius:10px;background-color: white;border:1px solid black;display:inline-block;cursor: pointer;transition:.7s;}
-		.controls>i:hover{background-color: #982023;}
+		.control:hover{background-color:#982023 !important;}
+		#controls_0{background-color:#982023;}
+		.controls>i{width:15px;height: 15px;border-radius:10px;background-color: white;border:1px solid black;display:inline-block;cursor: pointer;/*transition:.7s;*/}
 		.bottom_l{position:absolute;bottom: 0px;width:100%;height: 10px;background-color: #982023;}
 		.nav{width:955px;height:55px;margin:0 auto;font-size:15px;color:black;font-family:"Microsoft YaHei";font-weight: bold;
-			text-align: center;line-height: 55px;}
+			text-align: center;line-height: 55px;cursor: pointer;}
 		.nav>div{background-color: #EDEDED;float:left;width: 191px;height:100%;transition:.7s;}
 		.nav>div:hover{	background-color: #1d3f57;color:white;}
 		.line{
@@ -150,6 +155,8 @@
 			<div class = 'img' id = 'img_2'></div>
 			<div class = 'img' id = 'img_3'></div>
 			<div class = 'img' id = 'img_4'></div>
+			<div class = 'button' id = 'left'></div>
+			<div class = 'button' id = 'right'></div>
 		</div>
 		
 		<!-- <div class = 'bottom'></div> -->
@@ -157,11 +164,11 @@
 			<div class = 'title'>这是测试头条标题</div>
 			<div class = 'bottom_l'></div>
 			<div class = 'controls'>
-				<i id = 'controls_0' style = 'background-color : #982023'></i>
-				<i id = 'controls_1' style = 'background-color : white'></i>
-				<i id = 'controls_2' style = 'background-color : white'></i>
-				<i id = 'controls_3' style = 'background-color : white'></i>
-				<i id = 'controls_4' style = 'background-color : white'></i>
+				<i class = 'control' id = 'controls_0' ></i>
+				<i class = 'control' id = 'controls_1' ></i>
+				<i class = 'control' id = 'controls_2' ></i>
+				<i class = 'control' id = 'controls_3' ></i>
+				<i class = 'control' id = 'controls_4' ></i>
 			</div>
 		</div>
 	</div>
