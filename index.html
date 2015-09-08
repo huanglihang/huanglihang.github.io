@@ -144,10 +144,11 @@
 		//控制按钮
 		function control_0(){
 			flag =1;
-			animated_0 = 1;
 			if(animated_1 == 1 || animated_2 == 1 || animated_3 == 1 || animated_4 == 1){
+				animated_0 = 0;
 				return;
 			}else{
+				animated_0 = 1;
 				if(accAdd(imgwrap[0].style.opacity,change) < 1){
 					imgwrap[0].style.opacity = accAdd(imgwrap[0].style.opacity,change);
 					setTimeout(control_0,5);
@@ -174,10 +175,12 @@
 
 		function control_1(){
 			flag = 1;
-			animated_1 = 1;
+
 			if(animated_0 == 1 || animated_2 == 1 || animated_3 == 1 || animated_4 == 1){
+				animated_1 = 0;
 				return;
 			}else{
+				animated_1 = 1;
 				if(accAdd(imgwrap[1].style.opacity,change) < 1){
 					imgwrap[1].style.opacity = accAdd(imgwrap[1].style.opacity,change);
 					setTimeout(control_1,5);
@@ -203,10 +206,11 @@
 
 		function control_2(){
 			flag =1;
-			animated_2 = 1;
 			if(animated_0 == 1 || animated_1 == 1 || animated_3 == 1 || animated_4 == 1){
+				animated_2 = 0;
 				return;
 			}else{
+				animated_2 = 1;
 				if(accAdd(imgwrap[2].style.opacity,change) < 1){
 					imgwrap[2].style.opacity = accAdd(imgwrap[2].style.opacity,change);
 					setTimeout(control_2,5);
@@ -232,10 +236,11 @@
 
 		function control_3(){
 			flag =1;
-			animated_3 = 1;
-			if(animated_0 == 1 || animated_1 == 1 || animated_3 == 1 || animated_4 == 1){
+			if(animated_0 == 1 || animated_1 == 1 || animated_2 == 1 || animated_4 == 1){
+				animated_3 = 0;
 				return;
 			}else{
+				animated_3 = 1;
 				if(accAdd(imgwrap[3].style.opacity,change) < 1){
 					imgwrap[3].style.opacity = accAdd(imgwrap[3].style.opacity,change);
 					setTimeout(control_3,5);
@@ -261,10 +266,11 @@
 
 		function control_4(){
 			flag = 1;
-			animated_4 = 1;
-			if(animated_0 == 1 || animated_1 == 1 || animated_3 == 1 || animated_4 == 1){
+			if(animated_0 == 1 || animated_1 == 1 || animated_2 == 1 || animated_3 == 1){
+				animated_4 = 0;
 				return;
 			}else{
+				animated_4 = 1;
 				if(accAdd(imgwrap[4].style.opacity,change) < 1){
 					imgwrap[4].style.opacity = accAdd(imgwrap[4].style.opacity,change);
 					setTimeout(control_4,5);
