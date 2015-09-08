@@ -52,7 +52,8 @@
 		var index = 0;//表示图片检索下标。
 		var change  = 0.01;//表示动画变化量。
 		var flag = 0;//表示是否需要停止自动轮播。
-		var animated_0 = 0;//图片1切换是否进行。
+		var animated = 0; //图片进行切换。
+		var animated_0 = 0;
 		var animated_1 = 0;
 		var animated_2 = 0;
 		var animated_3 = 0;
@@ -145,7 +146,7 @@
 		function control_0(){
 			flag =1;
 			if(animated_1 == 1 || animated_2 == 1 || animated_3 == 1 || animated_4 == 1){
-				animated_0 = 0;
+				// animated_0 = 0;
 				return;
 			}else{
 				animated_0 = 1;
@@ -177,7 +178,7 @@
 			flag = 1;
 
 			if(animated_0 == 1 || animated_2 == 1 || animated_3 == 1 || animated_4 == 1){
-				animated_1 = 0;
+				// animated_1 = 0;
 				return;
 			}else{
 				animated_1 = 1;
@@ -207,7 +208,7 @@
 		function control_2(){
 			flag =1;
 			if(animated_0 == 1 || animated_1 == 1 || animated_3 == 1 || animated_4 == 1){
-				animated_2 = 0;
+				// animated_2 = 0;
 				return;
 			}else{
 				animated_2 = 1;
@@ -237,7 +238,7 @@
 		function control_3(){
 			flag =1;
 			if(animated_0 == 1 || animated_1 == 1 || animated_2 == 1 || animated_4 == 1){
-				animated_3 = 0;
+				// animated_3 = 0;
 				return;
 			}else{
 				animated_3 = 1;
@@ -267,7 +268,7 @@
 		function control_4(){
 			flag = 1;
 			if(animated_0 == 1 || animated_1 == 1 || animated_2 == 1 || animated_3 == 1){
-				animated_4 = 0;
+				// animated_4 = 0;
 				return;
 			}else{
 				animated_4 = 1;
@@ -293,7 +294,76 @@
 				}
 			}
 		}
+		//切换左按钮
+		function control_l (){
+			flag = 1;
+			// if(animated == 1){
+			// 	return;
+			// }else{
+			// 	animated = 1;
+				if(index == 0){
+					if(imgwrap[index].style.opacity - change >0){
+						imgwrap[index].style.opacity = imgwrap[index].style.opacity - change;
+						imgwrap[4].style.opacity = accAdd(imgwrap[4].style.opacity,change);
+						setTimeout(control_l,5);
+					}else{
+						imgwrap[index].style.opacity = 0;
+						imgwrap[4].style.opacity = 1;
+						b[index].style['background-color'] = 'white';
+						b[4].style['background-color'] = '#982023';
+						index = 4;
+						
+					}
+				}else{
+					if (imgwrap[index].style.opacity - change >0) {
+						imgwrap[index].style.opacity = imgwrap[index].style.opacity - change;
+						imgwrap[index-1].style.opacity = accAdd(imgwrap[index-1].style.opacity,change);
+						setTimeout(control_l,5);
+					}else{
+						imgwrap[index].style.opacity = 0;
+						imgwrap[index-1].style.opacity = 1;
+						b[index].style['background-color'] = 'white';
+						b[index-1].style['background-color'] = '#982023';
+						index = index -1;
+						
+					}
+				}
+		}
 
+		//切换右按钮
+		function control_r (){
+			flag = 1;
+			// if(animated == 1){
+			// 	return;
+			// }else{
+			// 	animated = 1;
+				if(index == 4){
+					if(imgwrap[index].style.opacity - change >0){
+						imgwrap[index].style.opacity = imgwrap[index].style.opacity - change;
+						imgwrap[0].style.opacity = accAdd(imgwrap[0].style.opacity,change);
+						setTimeout(control_r,5);
+					}else{
+						imgwrap[index].style.opacity = 0;
+						imgwrap[0].style.opacity = 1;
+						b[index].style['background-color'] = 'white';
+						b[0].style['background-color'] = '#982023';
+						index = 0;
+						
+					}
+				}else{
+					if (imgwrap[index].style.opacity - change >0) {
+						imgwrap[index].style.opacity = imgwrap[index].style.opacity - change;
+						imgwrap[index+1].style.opacity = accAdd(imgwrap[index+1].style.opacity,change);
+						setTimeout(control_r,5);
+					}else{
+						imgwrap[index].style.opacity = 0;
+						imgwrap[index+1].style.opacity = 1;
+						b[index].style['background-color'] = 'white';
+						b[index+1].style['background-color'] = '#982023';
+						index = index +1;
+					}
+				}
+		}
 
 	</script>
 </head>
@@ -319,8 +389,8 @@
 			<div class = 'img' id = 'img_2'></div>
 			<div class = 'img' id = 'img_3'></div>
 			<div class = 'img' id = 'img_4'></div>
-			<span class = 'button' id = 'left'></span>
-			<span class = 'button' id = 'right'></span>
+			<span class = 'button' id = 'left' onclick = 'control_l()'></span>
+			<span class = 'button' id = 'right' onclick = 'control_r()'></span>
 		</div>
 		
 		
