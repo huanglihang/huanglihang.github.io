@@ -19,9 +19,9 @@
 		.bottom{height:30px;width:100%;outline: 1px red solid;}
 		.lunbo{	position: absolute;	width:70%;height:90px;transform:translateX(-50%);left:50%;bottom:0px;}
 		.title{position: absolute;bottom:10px;width:100%;height:80px;background-color: #03131D;opacity:0.9;font-size: 30px;font-family: "Microsoft YaHei";color: white;text-align: center;line-height: 60px;}
-		.button{position: absolute;width:108px;height: 108px;cursor: pointer;}
-		#left{background: url(./images/spirit_2.png) 0px -125px no-repeat;top:50%;transform:translateY(-50%);left:20px;opacity: 0.4;}
-		#right{background: url(./images/spirit_2.png) 0px 0px no-repeat;top:50%;transform:translateY(-50%);right:20px;opacity: 0.4;}
+		.button{position: absolute;width:108px;height: 108px;cursor: pointer;opacity: 0.01;}
+		#left{background: url(./images/spirit_2.png) 0px -125px no-repeat;top:50%;transform:translateY(-50%);left:20px;}
+		#right{background: url(./images/spirit_2.png) 0px 0px no-repeat;top:50%;transform:translateY(-50%);right:20px;}
 		.button:hover{opacity: 0.8 !important;}
 		.controls{position: absolute;bottom:15px;left:50%;transform:translateX(-50%);}
 		.control:hover{background-color:#982023 !important;}
@@ -49,8 +49,14 @@
 	</style>
 	<script>
 	//轮播图
-		var index = 0;
-		var change  = 0.01;
+		var index = 0;//表示图片检索下标。
+		var change  = 0.01;//表示动画变化量。
+		var flag = 0;//表示是否需要停止自动轮播。
+		var animated_0 = 0;//图片1切换是否进行。
+		var animated_1 = 0;
+		var animated_2 = 0;
+		var animated_3 = 0;
+		var	animated_4 = 0;
 	//浮点加减法
 		function accAdd(arg1,arg2){  
 		    var r1,r2,m;  
@@ -61,75 +67,227 @@
 		}
 	//轮播动画
 		function step(){
-			if(index == 0){
-				if(imgwrap[1].style.opacity <= 1){			    
-					imgwrap[0].style.opacity = imgwrap[0].style.opacity - change;				
-					imgwrap[1].style.opacity = accAdd(imgwrap[1].style.opacity,change);
-					setTimeout(step,5);				
-				}else{
-					imgwrap[0].style.opacity = 0;
-					imgwrap[1].style.opacity = 1;
-					b[0].style['background-color'] = 'white';
-					b[1].style['background-color'] = '#982023';
-					index += 1;
-					setTimeout(step,5000);
+			if(flag == 0){
+				if(index == 0){
+					if(imgwrap[1].style.opacity <= 1){			    
+						imgwrap[0].style.opacity = imgwrap[0].style.opacity - change;				
+						imgwrap[1].style.opacity = accAdd(imgwrap[1].style.opacity,change);
+						setTimeout(step,5);				
+					}else{
+						imgwrap[0].style.opacity = 0;
+						imgwrap[1].style.opacity = 1;
+						b[0].style['background-color'] = 'white';
+						b[1].style['background-color'] = '#982023';
+						index += 1;
+						setTimeout(step,5000);
+					}
+				}else if(index == 1){
+					if(imgwrap[2].style.opacity  <=1){
+						imgwrap[1].style.opacity = imgwrap[1].style.opacity - change;
+						imgwrap[2].style.opacity = accAdd(imgwrap[2].style.opacity,change);
+						setTimeout(step,5);
+					}else{
+						imgwrap[1].style.opacity = 0;
+						imgwrap[2].style.opacity = 1;
+						b[1].style['background-color'] = 'white';
+						b[2].style['background-color'] = '#982023';
+						index += 1;
+						setTimeout(step,5000);
+					}
+				}else if(index == 2){
+					if(imgwrap[3].style.opacity  <=1){
+						imgwrap[2].style.opacity = imgwrap[2].style.opacity - change;
+						imgwrap[3].style.opacity = accAdd(imgwrap[3].style.opacity,change);
+						setTimeout(step,5);
+					}else{
+						imgwrap[2].style.opacity = 0;
+						imgwrap[3].style.opacity = 1;
+						b[2].style['background-color'] = 'white';
+						b[3].style['background-color'] = '#982023';
+						index += 1;
+						setTimeout(step,5000);
+					}
+				}else if(index == 3){
+					if(imgwrap[4].style.opacity  <=1){
+						imgwrap[3].style.opacity = imgwrap[3].style.opacity - change;
+						imgwrap[4].style.opacity = accAdd(imgwrap[4].style.opacity,change);
+						setTimeout(step,5);
+					}else{
+						imgwrap[3].style.opacity = 0;
+						imgwrap[4].style.opacity = 1;
+						b[3].style['background-color'] = 'white';
+						b[4].style['background-color'] = '#982023';
+						index +=1;
+						setTimeout(step,5000);
+					}
 				}
-			}else if(index == 1){
-				if(imgwrap[2].style.opacity  <=1){
-					imgwrap[1].style.opacity = imgwrap[1].style.opacity - change;
-					imgwrap[2].style.opacity = accAdd(imgwrap[2].style.opacity,change);
-					setTimeout(step,5);
-				}else{
-					imgwrap[1].style.opacity = 0;
-					imgwrap[2].style.opacity = 1;
-					b[1].style['background-color'] = 'white';
-					b[2].style['background-color'] = '#982023';
-					index += 1;
-					setTimeout(step,5000);
+				else if(index == 4){
+					if(imgwrap[0].style.opacity  <=1){
+						imgwrap[4].style.opacity = imgwrap[4].style.opacity - change;
+						imgwrap[0].style.opacity = accAdd(imgwrap[0].style.opacity,change);
+						setTimeout(step,5);
+					}else{
+						imgwrap[4].style.opacity = 0;
+						imgwrap[0].style.opacity = 1;
+						b[4].style['background-color'] = 'white';
+						b[0].style['background-color'] = '#982023';
+						index = 0;
+						setTimeout(step,5000);
+					}
 				}
-			}else if(index == 2){
-				if(imgwrap[3].style.opacity  <=1){
-					imgwrap[2].style.opacity = imgwrap[2].style.opacity - change;
-					imgwrap[3].style.opacity = accAdd(imgwrap[3].style.opacity,change);
-					setTimeout(step,5);
-				}else{
-					imgwrap[2].style.opacity = 0;
-					imgwrap[3].style.opacity = 1;
-					b[2].style['background-color'] = 'white';
-					b[3].style['background-color'] = '#982023';
-					index += 1;
-					setTimeout(step,5000);
-				}
-			}else if(index == 3){
-				if(imgwrap[4].style.opacity  <=1){
-					imgwrap[3].style.opacity = imgwrap[3].style.opacity - change;
-					imgwrap[4].style.opacity = accAdd(imgwrap[4].style.opacity,change);
-					setTimeout(step,5);
-				}else{
-					imgwrap[3].style.opacity = 0;
-					imgwrap[4].style.opacity = 1;
-					b[3].style['background-color'] = 'white';
-					b[4].style['background-color'] = '#982023';
-					index +=1;
-					setTimeout(step,5000);
-				}
-			}
-			else if(index == 4){
-				if(imgwrap[0].style.opacity  <=1){
-					imgwrap[4].style.opacity = imgwrap[4].style.opacity - change;
-					imgwrap[0].style.opacity = accAdd(imgwrap[0].style.opacity,change);
-					setTimeout(step,5);
-				}else{
-					imgwrap[4].style.opacity = 0;
-					imgwrap[0].style.opacity = 1;
-					b[4].style['background-color'] = 'white';
-					b[0].style['background-color'] = '#982023';
-					index = 0;
-					setTimeout(step,5000);
-				}
+			}else{
+				return;
 			}
 		}
 		var intervalID = setTimeout(step,3000);
+
+		//控制按钮
+		function control_0(){
+			flag =1;
+			animated_0 = 1;
+			if(animated_1 == 1 || animated_2 == 1 || animated_3 == 1 || animated_4 == 1){
+				return;
+			}else{
+				if(accAdd(imgwrap[0].style.opacity,change) < 1){
+					imgwrap[0].style.opacity = accAdd(imgwrap[0].style.opacity,change);
+					setTimeout(control_0,5);
+				}else{
+					imgwrap[0].style.opacity = 1;
+					b[0].style['background-color'] = '#982023';
+					index = 0;
+					animated_0 = 0;
+				}
+				for (var i = 0;i < b.length;i++){
+					if(i == 0){
+						continue;
+					}
+					if(imgwrap[i].style.opacity - change > 0 ){
+						imgwrap[i].style.opacity = imgwrap[i].style.opacity - change;
+					}else{
+						imgwrap[i].style.opacity = 0;
+						b[i].style['background-color'] = 'white';
+					}	
+				}
+			}	
+		}
+
+
+		function control_1(){
+			flag = 1;
+			animated_1 = 1;
+			if(animated_0 == 1 || animated_2 == 1 || animated_3 == 1 || animated_4 == 1){
+				return;
+			}else{
+				if(accAdd(imgwrap[1].style.opacity,change) < 1){
+					imgwrap[1].style.opacity = accAdd(imgwrap[1].style.opacity,change);
+					setTimeout(control_1,5);
+				}else{
+					imgwrap[1].style.opacity = 1;
+					b[1].style['background-color'] = '#982023';
+					index = 1;
+					animated_1 = 0;
+				}
+				for (var i = 0;i < b.length;i++){
+					if(i == 1){
+						continue;
+					}
+					if(imgwrap[i].style.opacity - change > 0 ){
+						imgwrap[i].style.opacity = imgwrap[i].style.opacity - change;
+					}else{
+						imgwrap[i].style.opacity = 0;
+						b[i].style['background-color'] = 'white';
+					}	
+				}
+			}
+		}
+
+		function control_2(){
+			flag =1;
+			animated_2 = 1;
+			if(animated_0 == 1 || animated_1 == 1 || animated_3 == 1 || animated_4 == 1){
+				return;
+			}else{
+				if(accAdd(imgwrap[2].style.opacity,change) < 1){
+					imgwrap[2].style.opacity = accAdd(imgwrap[2].style.opacity,change);
+					setTimeout(control_2,5);
+				}else{
+					imgwrap[2].style.opacity = 1;
+					b[2].style['background-color'] = '#982023';
+					index = 2;
+					animated_2 = 0;
+				}
+				for (var i = 0;i < b.length;i++){
+					if(i == 2){
+						continue;
+					}
+					if(imgwrap[i].style.opacity - change > 0 ){
+						imgwrap[i].style.opacity = imgwrap[i].style.opacity - change;
+					}else{
+						imgwrap[i].style.opacity = 0;
+						b[i].style['background-color'] = 'white';
+					}	
+				}
+			}
+		}
+
+		function control_3(){
+			flag =1;
+			animated_3 = 1;
+			if(animated_0 == 1 || animated_1 == 1 || animated_3 == 1 || animated_4 == 1){
+				return;
+			}else{
+				if(accAdd(imgwrap[3].style.opacity,change) < 1){
+					imgwrap[3].style.opacity = accAdd(imgwrap[3].style.opacity,change);
+					setTimeout(control_3,5);
+				}else{
+					imgwrap[3].style.opacity = 1;
+					b[3].style['background-color'] = '#982023';
+					index = 3;
+					animated_3 = 0;
+				}
+				for (var i = 0;i < b.length;i++){
+					if(i == 3){
+						continue;
+					}
+					if(imgwrap[i].style.opacity - change > 0 ){
+						imgwrap[i].style.opacity = imgwrap[i].style.opacity - change;
+					}else{
+						imgwrap[i].style.opacity = 0;
+						b[i].style['background-color'] = 'white';
+					}	
+				}
+			}
+		}
+
+		function control_4(){
+			flag = 1;
+			animated_4 = 1;
+			if(animated_0 == 1 || animated_1 == 1 || animated_3 == 1 || animated_4 == 1){
+				return;
+			}else{
+				if(accAdd(imgwrap[4].style.opacity,change) < 1){
+					imgwrap[4].style.opacity = accAdd(imgwrap[4].style.opacity,change);
+					setTimeout(control_4,5);
+				}else{
+					imgwrap[4].style.opacity = 1;
+					b[4].style['background-color'] = '#982023';
+					index = 4;
+					animated_4 = 0;
+				}
+				for (var i = 0;i < b.length;i++){
+					if(i == 4){
+						continue;
+					}
+					if(imgwrap[i].style.opacity - change > 0 ){
+						imgwrap[i].style.opacity = imgwrap[i].style.opacity - change;
+					}else{
+						imgwrap[i].style.opacity = 0;
+						b[i].style['background-color'] = 'white';
+					}	
+				}
+			}
+		}
+
 
 	</script>
 </head>
@@ -155,20 +313,21 @@
 			<div class = 'img' id = 'img_2'></div>
 			<div class = 'img' id = 'img_3'></div>
 			<div class = 'img' id = 'img_4'></div>
-			<div class = 'button' id = 'left'></div>
-			<div class = 'button' id = 'right'></div>
+			<span class = 'button' id = 'left'></span>
+			<span class = 'button' id = 'right'></span>
 		</div>
+		
 		
 		<!-- <div class = 'bottom'></div> -->
 		<div class = 'lunbo'>
 			<div class = 'title'>这是测试头条标题</div>
 			<div class = 'bottom_l'></div>
 			<div class = 'controls'>
-				<i class = 'control' id = 'controls_0' ></i>
-				<i class = 'control' id = 'controls_1' ></i>
-				<i class = 'control' id = 'controls_2' ></i>
-				<i class = 'control' id = 'controls_3' ></i>
-				<i class = 'control' id = 'controls_4' ></i>
+				<i class = 'control' id = 'controls_0' onclick = 'control_0()'></i>
+				<i class = 'control' id = 'controls_1' onclick = 'control_1()'></i>
+				<i class = 'control' id = 'controls_2' onclick = 'control_2()'></i>
+				<i class = 'control' id = 'controls_3' onclick = 'control_3()'></i>
+				<i class = 'control' id = 'controls_4' onclick = 'control_4()'></i>
 			</div>
 		</div>
 	</div>
