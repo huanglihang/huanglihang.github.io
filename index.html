@@ -18,20 +18,20 @@
 		.sixin{position: absolute;height:15px;width: 25px;background:url(./images/head&foot_spirit.png) 0px -84px;top:32px;right:55px;cursor: pointer;}
 
 		.bottom{height:30px;width:100%;outline: 1px red solid;}
-		.lunbo{	position: absolute;	width:70%;height:90px;transform:translateX(-50%);left:50%;bottom:0px;}
+		.lunbo{	position: absolute;	width:70%;height:90px;transform:translateX(-50%);-webkit-transform:translateX(-50%);left:50%;bottom:0px;}
 		.title{position: absolute;bottom:10px;width:100%;height:80px;background-color: #03131D;opacity:0.9;font-size: 30px;font-family: "Microsoft YaHei";color: white;text-align: center;line-height: 60px;}
 		.button{position: absolute;width:108px;height: 108px;cursor: pointer;opacity: 0;}
-		#left{background: url(./images/spirit_2.png) 0px -125px no-repeat;top:50%;transform:translateY(-50%);left:20px;}
-		#right{background: url(./images/spirit_2.png) 0px 0px no-repeat;top:50%;transform:translateY(-50%);right:20px;}
+		#left{background: url(./images/spirit_2.png) 0px -125px no-repeat;top:50%;transform:translateY(-50%);-webkit-transform:translateY(-50%);left:20px;}
+		#right{background: url(./images/spirit_2.png) 0px 0px no-repeat;top:50%;transform:translateY(-50%);-webkit-transform:translateY(-50%);right:20px;}
 		.button:hover{opacity: 0.8 !important;}
-		.controls{position: absolute;bottom:15px;left:50%;transform:translateX(-50%);}
+		.controls{position: absolute;bottom:15px;left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);}
 		.control:hover{background-color:#982023 !important;}
 		#controls_0{background-color:#982023;}
 		.controls>i{width:15px;height: 15px;border-radius:10px;background-color: white;border:1px solid black;display:inline-block;cursor: pointer;/*transition:.7s;*/}
 		.bottom_l{position:absolute;bottom: 0px;width:100%;height: 10px;background-color: #982023;}
-		.nav{display:flex;flex-direction:row;width:70%;height:55px;margin:0 auto;font-size:15px;color:black;font-family:"Microsoft YaHei";font-weight: bold;
+		.nav{display:flex;display:-webkit-flex;flex-direction:row;-webkit-flex-direction:row;width:70%;height:55px;margin:0 auto;font-size:15px;color:black;font-family:"Microsoft YaHei";font-weight: bold;
 			text-align: center;line-height: 55px;cursor: pointer;}
-		.nav>div{background-color: #EDEDED;/*float:left;width: 191px;*/flex:1;height:100%;transition:.7s;}
+		.nav>div{background-color: #EDEDED;/*float:left;width: 191px;*/flex:1;-webkit-flex:1;height:100%;transition:.7s;}
 		.nav>div:hover{	background-color: #1d3f57;color:white;}
 		.line{
 			float:right;
@@ -371,8 +371,8 @@
 <body>
 	<div class = 'parent'>
 		<div class = 'top'>
-			<div class = 'logo'></div>
-			<div class = 'slogan'></div>
+			<a href="http://huanglihang.github.io"><div class = 'logo'></div></a>
+			<a href="http://huanglihang.github.io"><div class = 'slogan'></div></a>
 			<div class = 'denglu'>登录</div>
 			<div id = 'line_1'></div>
 			<div class = 'sixin'></div>
