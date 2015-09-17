@@ -29,10 +29,18 @@
 		#controls_0{background-color:#982023;}
 		.controls>i{width:15px;height: 15px;border-radius:10px;background-color: white;border:1px solid black;display:inline-block;cursor: pointer;/*transition:.7s;*/}
 		.bottom_l{position:absolute;bottom: 0px;width:100%;height: 10px;background-color: #982023;}
-		.nav{position: absolute;left:50%;top:75px;transform:translateX(-50%);-webkit-transform:translateX(-50%);display:flex;display:-webkit-box;flex-direction:row;-webkit-flex-direction:row;width:70%;height:55px;/*margin:0 auto;*/font-size:15px;color:black;font-family:"Microsoft YaHei";font-weight: bold;
-			text-align: center;line-height: 55px;cursor: pointer;z-index: 1;}
-		.nav>div{background-color: #EDEDED;/*float:left;width: 191px;*/flex:1;-webkit-box-flex:1;height:100%;transition:.7s;-webkit-transition:.7s;}
-		.nav>div:hover{	background-color: #1d3f57;color:white;}
+		/*.nav{position: absolute;left:50%;top:75px;transform:translateX(-50%);-webkit-transform:translateX(-50%);display:inline-block;display:-webkit-box;flex-direction:row;-webkit-flex-direction:row;width:70%;height:55px;font-size:15px;color:black;font-family:"Microsoft YaHei";font-weight: bold;
+			text-align:center;line-height: 55px;cursor:pointer;z-index: 1;}*/
+		/*.nav>a{background-color: #EDEDED;height:100%;width:20%;transition:.7s;-webkit-transition:.7s;}
+		
+		.nav>a:hover{background-color: #1d3f57;color:white;}*/
+		.nav{position: absolute;left:50%;top:75px;transform:translateX(-50%);-webkit-transform:translateX(-50%);height:55px; width:70%;z-index: 1;background-color:#ededec;}
+		.nav ul li{display: inline-block;width:20%;height: 100%;}
+		.nav ul li a{display:block; text-align:center; font:17px/55px '微软雅黑',"Microsoft YaHei";text-decoration: none;color:black;transition:.7s;-webkit-transition:.7s;}
+		.nav ul li a:hover{
+			background-color:#1d3f57;
+			color:white;
+		}
 		.line{
 			float:right;
 			width:1px;
@@ -425,13 +433,16 @@
 			<div id = 'line_1'></div>
 			<div class = 'sixin'></div>
 		</div>
-		<div class = 'nav'>
-			<div id = 'nav1'>主页<div class = 'line'></div></div>
-			<div id = 'nav2'>棒垒事<div class = 'line'></div></div>
-			<div id = 'nav3'>影视<div class = 'line'></div></div>
-			<div id = 'nav4'>20周年<div class = 'line'></div></div>
-			<div id = 'nav5'>关于我们</div>
-		</div>
+		<nav class = 'nav'>
+			<ul>
+				<li><a href="http://huanglihang.github.io/index.html">主页<div class = 'line'></div></a></li><li><a href="http://huanglihang.github.io/news/baseball.html">棒垒事<div class = 'line'></div></a></li><li><a href="">影视<div class = 'line'></div></a></li><li><a href="">20周年<div class = 'line'></div></a></li><li><a href="">关于我们</a></li>
+				<!-- <a href="http://huanglihang.github.io/index.html" id = 'nav1'><div>主页<div class = 'line'></div></div></a>
+				<a href="http://huanglihang.github.io/news/baseball.html"><div id = 'nav2'>棒垒事<div class = 'line'></div></div></a>
+				<div id = 'nav3'>影视<div class = 'line'></div></div>
+				<div id = 'nav4'>20周年<div class = 'line'></div></div>
+				<div id = 'nav5'>关于我们</div> -->
+			</ul>
+		</nav>
 		<div class = 'background'></div>
 		<div class = 'container'>
 			<div class = 'img' id = 'img_0'></div>
