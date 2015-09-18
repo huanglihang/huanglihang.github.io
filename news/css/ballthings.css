@@ -13,7 +13,7 @@
  header .ball_detail{height:71px; width:955px; background-color:#03131d;}
  .ball_bar ul li{display:inline-block; width:20%;}
  
- .ball_bar ul li a{display:block; text-align:center; font:17px/55px '微软雅黑',"Microsoft YaHei";}
+ .ball_bar ul li a{display:block; text-align:center; font:15px/55px '微软雅黑',"Microsoft YaHei";}
  .ball_bar ul li a:hover{width:191px; height:55px; text-decoration:none; background:url(../img/header&fronter_spirit.png) 0px -446px no-repeat; color:#fff;}
  .ball_bar ul>div.line{width:1px; height:30px; margin-top:-43px; background-color:gray;}
  footer{height:163px; background-image:linear-gradient(#03131D,#1d3f57);}
