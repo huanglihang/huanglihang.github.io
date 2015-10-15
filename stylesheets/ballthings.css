@@ -16,8 +16,8 @@
  #line_1{position: absolute;width: 1px;height: 20px;background-color: white;top:30px;right:90px;}
  .sixin{position: absolute;height:15px;width: 25px;background:url(../images/head&foot_spirit.png) 0px -84px;top:32px;right:55px;cursor: pointer;}
  header .ball_bar{height:55px; width:70%;margin-top:75px;background-color:#ededec;}
- header .ball_detail{height:60px; width:70%;background-color:#03131d;}
- .ball_detail>p{color:white;font:15px/60px '微软雅黑';margin-left:90px;}
+ header .ball_detail{height:45px; width:70%;background-color:#03131d;}
+ .ball_detail>p{color:white;font:15px/45px '微软雅黑';margin-left:90px;}
  .ball_bar ul li{display:inline-block;width:20%;height: 100%;}
  
  .ball_bar ul li a{display:block;height: 100%;width:100%;text-align:center;font:15px/55px '微软雅黑',"Microsoft YaHei";color:black;}
@@ -38,4 +38,4 @@
  .left .side ul li a:hover{background-color:#ededec;}
  .left .side ul>div.line2{margin-left:10px; width:140px; height:1px; background-color:gray;}
 
- .background{position:fixed;left:0px;right:0px;top:0px;bottom: 0px;z-index:-1;background:url(../images/background3.jpg);background-size: cover;}
+ .background{position:fixed;left:0px;right:0px;top:0px;bottom: 0px;z-index:-2;background:url(../images/background3.jpg);background-size: cover;}
